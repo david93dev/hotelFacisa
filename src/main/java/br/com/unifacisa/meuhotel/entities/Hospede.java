@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -36,4 +38,6 @@ public class Hospede {
     @Column(nullable = false)
     private String tipoEstadia;
 
+    @OneToMany(mappedBy = "hospede", cascade = CascadeType.ALL)
+    private List<Reserva> reservas;
 }

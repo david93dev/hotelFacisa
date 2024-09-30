@@ -1,7 +1,6 @@
 package br.com.unifacisa.meuhotel.services;
 
 import br.com.unifacisa.meuhotel.dto.HospedeRecordDTO;
-import br.com.unifacisa.meuhotel.entities.Funcionario;
 import br.com.unifacisa.meuhotel.entities.Hospede;
 import br.com.unifacisa.meuhotel.repository.HospedeRepository;
 import org.springframework.beans.factory.annotation.Autowired;

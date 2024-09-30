@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -30,5 +32,6 @@ public class Quarto {
     @Column(nullable = false)
     private String tipoQuarto;
 
-
+    @OneToMany(mappedBy = "quarto", cascade = CascadeType.ALL)
+    private List<Reserva> reservas;
 }
