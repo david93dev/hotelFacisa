@@ -1,5 +1,6 @@
 package br.com.unifacisa.meuhotel.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -38,6 +39,7 @@ public class Hospede {
     @Column(nullable = false)
     private String tipoEstadia;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "hospede", cascade = CascadeType.ALL)
     private List<Reserva> reservas;
 }

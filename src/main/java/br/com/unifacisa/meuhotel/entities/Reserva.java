@@ -1,5 +1,7 @@
 package br.com.unifacisa.meuhotel.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -34,4 +36,15 @@ public class Reserva {
 
     @Column(nullable = false)
     private String statusReserva;
+
+    @JsonProperty("hospede_id")
+    public Integer getHospedeId() {
+        return hospede != null ? hospede.getIdHospede() : null;
+    }
+
+    // Expondo apenas o ID do quarto no JSON
+    @JsonProperty("quarto_id")
+    public Integer getQuartoId() {
+        return quarto != null ? quarto.getIdQuarto() : null;
+    }
 }
