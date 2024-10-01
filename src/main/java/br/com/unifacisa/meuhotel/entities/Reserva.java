@@ -20,6 +20,9 @@ public class Reserva {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idReserva;
 
+    @Column(nullable = false)
+    private Integer hotelId;
+
     @ManyToOne
     @JoinColumn(name = "hospede_id", referencedColumnName = "idHospede")
     private Hospede hospede;
@@ -37,14 +40,10 @@ public class Reserva {
     @Column(nullable = false)
     private String statusReserva;
 
-    @JsonProperty("hospede_id")
-    public Integer getHospedeId() {
-        return hospede != null ? hospede.getIdHospede() : null;
-    }
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "reservaID")
+    private Hotel reservasHotel;
 
-    // Expondo apenas o ID do quarto no JSON
-    @JsonProperty("quarto_id")
-    public Integer getQuartoId() {
-        return quarto != null ? quarto.getIdQuarto() : null;
-    }
+
 }

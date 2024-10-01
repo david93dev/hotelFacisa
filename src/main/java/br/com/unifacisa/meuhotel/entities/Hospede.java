@@ -21,6 +21,9 @@ public class Hospede {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idHospede;
 
+    @Column(nullable = false)
+    private Integer hotelId;
+
     @Column(nullable = false, unique = true)
     private String cpf;
 
@@ -42,4 +45,9 @@ public class Hospede {
     @JsonIgnore
     @OneToMany(mappedBy = "hospede", cascade = CascadeType.ALL)
     private List<Reserva> reservas;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "hospedeID")
+    private Hotel hospedesHotel;
 }

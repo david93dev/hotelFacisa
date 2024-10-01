@@ -22,6 +22,9 @@ public class Quarto {
     private Integer idQuarto;
 
     @Column(nullable = false)
+    private Integer hotelId;
+
+    @Column(nullable = false)
     private String statusQuarto;
 
     @Column(nullable = false)
@@ -36,4 +39,14 @@ public class Quarto {
     @JsonIgnore
     @OneToMany(mappedBy = "quarto", cascade = CascadeType.ALL)
     private List<Reserva> reservas;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "IdHotel")
+    private Hotel quartosHotel;
+
+
+
+
+
 }
